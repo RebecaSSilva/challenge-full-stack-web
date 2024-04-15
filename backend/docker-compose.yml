@@ -1,0 +1,31 @@
+version: '3'
+
+services:
+  # Node.js application
+  app:
+    build: .
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+    environment:
+      DB_HOST: 127.0.0.1
+      DB_PORT: 3306
+      DB_NAME: student_plataform
+      DB_USER: root
+      DB_PASS: 
+      JWT_SECRET: mysecretkey
+      EMAIL_HOST: smtp.gmail.com
+      EMAIL_PORT: 587
+      EMAIL_USER: myemail@gmail.com
+      EMAIL_PASS: myemailpassword
+      command: "node server.js"
+  # MySQL database
+  db:
+    image: mysql:latest
+    container_name: db
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_DATABASE: student_plataform
+      MYSQL_ROOT_PASSWORD: root  
