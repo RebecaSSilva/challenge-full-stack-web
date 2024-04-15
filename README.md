@@ -1,4 +1,7 @@
 # Projeto Node.js
+Você pode rodar com:
+Xampp/MySQL
+Node 20
 
 ## Como Rodar o Projeto
 cd backend
